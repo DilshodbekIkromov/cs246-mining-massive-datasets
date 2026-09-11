@@ -1,0 +1,9 @@
+The steps
+
+Normalize text (lowercase, collapse whitespace).
+Shingle: k=5..9 for characters, k=3 for words.
+Hash each shingle to a 32/64-bit integer so you store ints instead of strings.
+MinHash: n hash functions → signature of length n. Typically n = 128 or 256.
+Pick b, r from your threshold; band and bucket.
+Collect candidate pairs from buckets with ≥2 members.
+Verify with exact Jaccard, keep pairs ≥ threshold.
